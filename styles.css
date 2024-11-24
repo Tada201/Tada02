@@ -164,9 +164,13 @@ body::before {
 
 .profile-pic {
     width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    box-shadow: 0 10px 50px #858585;
     transition: transform 0.5s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 35% 60%;
 }
 
 .profile-pic:hover {
