@@ -1,80 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio of Tada201">
-    <title>Tada201 Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="hero">
-        <div class="sidebar">
-            <img src="profile.jpg" alt="My profile pic" class="profile-pic">
-            <nav>
-                <ul class="navbar">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="hero-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm Tada201. This site is incomplete.</p>
-            <a href="#portfolio" class="btn">View My Work</a>
-        </div>
-    </header>
-
-    <main>
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>A brief introduction about myself and what I will do.</p>
-        </section>
-        
-        <section id="portfolio" class="section">
-            <h2>Portfolio</h2>
-            <div class="portfolio-items">
-                <div class="portfolio-item">
-                    <h3>Project 1</h3>
-                    <p>Short description of the project.</p>
-                    <a href="https://github.com/yourrepo" target="_blank">View on GitHub</a>
-                </div>
-                <div class="portfolio-item">
-                    <h3>Project 2</h3>
-                    <p>Short description of the project.</p>
-                    <a href="https://yourprojectlink.com" target="_blank">Visit Project</a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="resume" class="section">
-            <h2>Resume</h2>
-            <p>Download my resume: <a href="resume.pdf" download>Click here</a></p>
-        </section>
-    </main>
-    
-    <footer class="footer">
-        <p>&copy; 2024 Tada201. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('.section, .portfolio-item');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-
-            elements.forEach(el => {
-                el.style.animationPlayState = 'paused';
-                observer.observe(el);
-            });
-        });
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Web Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
