@@ -1,0 +1,188 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* or 'Lato', sans-serif; */
+    font-size: 16px; /* or 1rem; */
+    line-height: 1.5; /* or 24px; */
+    background: url('background_2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #dcdcdc; /* Light gray text */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: rgba(28, 28, 28, 0.85); /* Less opaque for more visibility */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar .navbar {
+    list-style-type: none;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.sidebar .navbar li {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar .navbar a {
+    text-decoration: none;
+    color: #00d1ff; /* Terminal cyan */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sidebar .navbar a:hover {
+    color: #ff8c00; /* Accent color */
+}
+
+.profile-pic {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 15px #00d1ff;
+}
+
+.hero {
+    margin-left: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+    padding: 40px;
+    background-color: rgba(42, 42, 42, 0.4); /* Lighter overlay */
+    color: #dcdcdc;
+    animation: colorShift 8s infinite;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #005f87;
+    color: #dcdcdc;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007f9f;
+    transform: translateY(-3px);
+}
+
+/* Section and Portfolio */
+.section {
+    margin-left: 240px;
+    padding: 40px;
+    max-width: 1000px;
+    background-color: rgba(42, 42, 42, 0.4); /* Lighter overlay */
+    color: #dcdcdc;
+    border-radius: 15px;
+    margin-top: 30px;
+    animation: colorShift 8s infinite;
+    animation-delay: 2s;
+    transition: background-color 1s ease;
+}
+
+.portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.portfolio-item {
+    background-color: rgba(28, 28, 28, 0.4); /* Lighter overlay */
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background-color 1s;
+    animation: colorShift 8s infinite;
+    animation-delay: 4s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorShift {
+    0% { background-color: rgba(42, 42, 42, 0.4); }
+    25% { background-color: rgba(60, 60, 120, 0.4); }
+    50% { background-color: rgba(42, 42, 100, 0.4); }
+    75% { background-color: rgba(28, 60, 90, 0.4); }
+    100% { background-color: rgba(42, 42, 42, 0.4); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar, main, .hero, .section {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar {
+        position: relative;
+        height: auto;
+    }
+
+    .sidebar .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin: 10px 0;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-content {
+        padding: 15px;
+    }
+}
+.footer {
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Add some padding for better spacing */
+}
