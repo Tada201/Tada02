@@ -6,7 +6,9 @@
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Open Sans', sans-serif; /* or 'Lato', sans-serif; */
+    font-size: 16px; /* or 1rem; */
+    line-height: 1.5; /* or 24px; */
     background: url('background_2.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #dcdcdc; /* Light gray text */
