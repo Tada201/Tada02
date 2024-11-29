@@ -1,0 +1,62 @@
+/* Import Base Styles */
+@import './base/variables.css';
+@import './base/reset.css';
+
+/* Import Animations */
+@import './animations/keyframes.css';
+
+/* Import Components */
+@import './components/sidebar.css';
+@import './components/main-content.css';
+@import './components/portfolio.css';
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: var(--bg-dark);
+    backdrop-filter: blur(5px);
+    border-top: 2px solid transparent;
+    animation: rainbow-border 5s linear infinite;
+}
+
+.footer p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #00d1ff;
+        --accent-color: #ff8c00;
+        --bg-dark: rgba(18, 18, 18, 0.95);
+        --text-color: #ffffff;
+    }
+}
