@@ -1,0 +1,36 @@
+/* Neon and Rainbow Effects */
+@keyframes rainbow-border {
+    0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+    17% { border-color: #ff8c00; box-shadow: 0 0 10px #ff8c00; }
+    33% { border-color: #ffff00; box-shadow: 0 0 10px #ffff00; }
+    50% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
+    67% { border-color: #00ffff; box-shadow: 0 0 10px #00ffff; }
+    83% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
+    100% { border-color: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+}
+
+@keyframes neon-glow {
+    0%, 100% { 
+        text-shadow: 0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 30px #00d1ff,
+                     0 0 40px #00d1ff;
+    }
+    50% { 
+        text-shadow: 0 0 20px #fff,
+                     0 0 30px #ff8c00,
+                     0 0 40px #ff8c00,
+                     0 0 50px #ff8c00;
+    }
+}
+
+/* Basic Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
