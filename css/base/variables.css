@@ -1,0 +1,7 @@
+:root {
+    --primary-color: #00d1ff;
+    --accent-color: #ff8c00;
+    --bg-dark: rgba(28, 28, 28, 0.85);
+    --text-color: #dcdcdc;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
