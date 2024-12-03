@@ -1,0 +1,56 @@
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    animation: rainbow-border 5s linear infinite;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px 0;
+    border: 3px solid transparent;
+    transition: var(--transition-smooth);
+    animation: rainbow-border 5s linear infinite;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.navbar {
+    list-style: none;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.navbar li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 10px;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+    animation: neon-glow 1.5s ease-in-out infinite;
+    color: #fff;
+}

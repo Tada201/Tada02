@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperture Science BIOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/boot.css">
+</head>
+<body>
+    <div class="grid-overlay"></div>
+    
+    <div class="logo-container">
+        <img src="assets/images/aperture-logo.png" alt="Aperture Science Logo" class="aperture-logo" aria-label="Aperture Science Logo">
+    </div>
+
+    <div class="boot-log-container">
+        <div class="boot-log" id="bootLog" aria-live="polite">
+            <!-- Logs will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <div class="stats-panel" id="statsPanel">
+        <div class="stat-item">
+            <label>CPU Load</label>
+            <div class="progress-bar">
+                <div class="progress" id="cpuProgress"></div>
+            </div>
+            <span id="cpuValue">45%</span>
+        </div>
+        <div class="stat-item">
+            <label>Memory Usage</label>
+            <div class="progress-bar">
+                <div class="progress" id="memoryProgress"></div>
+            </div>
+            <span id="memoryValue">62%</span>
+        </div>
+        <div class="stat-item">
+            <label>Node Connection</label>
+            <span id="nodeStatus" class="status-stable">Stable</span>
+        </div>
+    </div>
+
+    <div class="timer" id="timer" aria-label="Boot Timer">00:00:00:000</div>
+
+    <script src="js/boot.js"></script>
+</body>
+</html>

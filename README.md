@@ -1,5 +1,2 @@
-A testing portfolio site
-Aiming for some changes in the future
-
-
-Here Link: https://tada201.github.io/Tada02/
+# Tada203_test
+A place for testing Project IDX place to code

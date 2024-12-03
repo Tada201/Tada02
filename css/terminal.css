@@ -1,0 +1,148 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.cli-section {
+    width: 100%;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-sizing: border-box;
+}
+
+.cli-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--primary-color);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.cli-header {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cli-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px var(--primary-color);
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.cli-output {
+    padding: 1.5rem;
+    min-height: 300px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.cli-input-container {
+    padding: 10px 20px;
+    border-top: 1px solid var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cli-input-line {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid #00f0ff;
+}
+
+.cli-prompt {
+    color: #00f0ff;
+    margin-right: 10px;
+}
+
+.cli-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #00f0ff;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Command Navigation */
+.command-nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00f0ff;
+    border-radius: 5px;
+    z-index: 99;
+}
+
+.command-button {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00f0ff;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.command-button:hover {
+    background-color: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.command-name {
+    color: #00f0ff;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.command-desc {
+    color: #00f0ff;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-top: 120px; /* Space for nav bar */
+    margin-bottom: 340px; /* Space for terminal */
+    flex: 1;
+}
+
+/* Boot Animation */
+.boot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+.boot-container {
+    width: 80%;
+    max-width: 800px;
+}

@@ -1,3 +1,6 @@
+/* Import Boot Screen */
+@import './boot.css';
+
 /* Import Base Styles */
 @import './base/variables.css';
 @import './base/reset.css';
@@ -10,20 +13,188 @@
 @import './components/main-content.css';
 @import './components/portfolio.css';
 
-/* Footer Styles */
-.footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background: var(--bg-dark);
-    backdrop-filter: blur(5px);
-    border-top: 2px solid transparent;
-    animation: rainbow-border 5s linear infinite;
+/* Import Effects */
+@import './neon-effects.css';
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.footer p {
+:root {
+    --primary-color: #00d1ff;
+    --accent-color: #ff8c00;
+    --bg-dark: rgba(28, 28, 28, 0.85);
+    --text-color: #dcdcdc;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
     color: var(--text-color);
-    font-size: 0.9rem;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(45deg, rgba(26, 26, 26, 0.85), rgba(42, 42, 42, 0.85)), url('../assets/images/background_2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Boot Screen */
+.boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background: linear-gradient(45deg, rgba(26, 26, 26, 0.85), rgba(42, 42, 42, 0.85));
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Navigation */
+.navbar {
+    list-style: none;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: var(--primary-color);
+    transform: translateX(10px);
+}
+
+/* Main Content Area */
+main {
+    margin-left: 240px;
+    padding: 40px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: var(--bg-dark);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+/* Typography */
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.glitch-text {
+    font-size: 3em;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 2px 2px var(--primary-color);
+}
+
+.typing-text {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition-smooth);
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Portfolio Items */
+.portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    transition: var(--transition-smooth);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+    margin-left: 240px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--bg-dark);
 }
 
 /* Responsive Design */
@@ -49,14 +220,8 @@
     .hero-content h1 {
         font-size: 2rem;
     }
-}
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #00d1ff;
-        --accent-color: #ff8c00;
-        --bg-dark: rgba(18, 18, 18, 0.95);
-        --text-color: #ffffff;
+    .footer {
+        margin-left: 0;
     }
 }

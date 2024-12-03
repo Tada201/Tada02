@@ -11,16 +11,13 @@
 
 @keyframes neon-glow {
     0%, 100% { 
-        text-shadow: 0 0 10px #fff,
-                     0 0 20px #fff,
-                     0 0 30px #00d1ff,
-                     0 0 40px #00d1ff;
+        text-shadow: var(--text-glow);
     }
     50% { 
         text-shadow: 0 0 20px #fff,
-                     0 0 30px #ff8c00,
-                     0 0 40px #ff8c00,
-                     0 0 50px #ff8c00;
+                     0 0 30px var(--accent-color),
+                     0 0 40px var(--accent-color),
+                     0 0 50px var(--accent-color);
     }
 }
 

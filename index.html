@@ -4,73 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Portfolio Test Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Custom Cursor Styles */
+        * {
+            cursor: none !important;
+        }
+        
+        .cursor-dot,
+        .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.2s ease-out;
+        }
+
+        .cursor-hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: transparent;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
-    <aside class="sidebar">
-        <img src="assets/images/profile.png" alt="Profile Picture" class="profile-pic" id="profilePic">
-        <nav>
-            <ul class="navbar">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </aside>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="glitch-text">Welcome to My Portfolio</h1>
-                <p class="typing-text">Web design test by selected AI</p>
-                <a href="#contact" class="btn pulse">Get in Touch</a>
+    <!-- Boot Screen -->
+    <div id="boot_screen" class="boot-screen">
+        <div class="grid-overlay"></div>
+        
+        <!-- Top Section -->
+        <div class="boot-top-section">
+            <!-- BIOS Terminal (Red Outline) -->
+            <div class="bios-terminal">
+                <div id="bootLog" class="boot-log"></div>
             </div>
-        </section>
 
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>This is a testing development site.</p>
-                <p>The many radical changes you see in each contribution on github is me fooling around with the possibility of many AI models into one</p>
+            <!-- Center Logo -->
+            <div class="center-logo">
+                <img src="assets/Logo/Aperture.svg" alt="Aperture Logo" class="aperture-logo">
+                <div class="aperture-text">APERTURE SCIENCE</div>
             </div>
-        </section>
 
-        <section id="portfolio" class="section">
-            <h2>My Work</h2>
-            <div class="portfolio-items">
-                <div class="portfolio-item">
-                    <h3>Project 1</h3>
-                    <p>test info</p>
-                </div>
-                <div class="portfolio-item">
-                    <h3>Project 2</h3>
-                    <p>test info</p>
-                </div>
-                <div class="portfolio-item">
-                    <h3>Project 3</h3>
-                    <p>*insert description*</p>
+            <!-- Exit Fullscreen Message -->
+            <div class="exit-fullscreen-msg">
+                To exit full screen, press and hold <span class="key">Esc</span>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="boot-bottom-section">
+            <!-- System Monitor (Yellow Outline) -->
+            <div class="system-monitor">
+                <div class="monitor-text">System Monitor</div>
+                <canvas id="sineWaveCanvas"></canvas>
+                <div class="stats-panel">
+                    <div class="stat-row">
+                        <span>Time:</span>
+                        <span id="timer">00:00:000</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>CPU:</span>
+                        <div class="graph-container">
+                            <div class="progress-bar">
+                                <div id="cpuProgress" class="progress"></div>
+                            </div>
+                            <span id="cpuValue">0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <span>Memory:</span>
+                        <div class="graph-container">
+                            <div class="progress-bar">
+                                <div id="memoryProgress" class="progress"></div>
+                            </div>
+                            <span id="memoryValue">0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <span>Node Status:</span>
+                        <span id="nodeStatus" class="status-online">ONLINE</span>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="contact" class="section">
-            <h2>Contact Me</h2>
-            <div class="contact-content">
-                <p>Get in touch with me for collaborations and opportunities.</p>
-                <div class="contact-info">
-                    <p>Email: your.email@example.com</p>
-                    <p>LinkedIn: linkedin.com/in/yourprofile</p>
-                    <p>GitHub: https://github.com/Tada201/Tada02</p>
+            <!-- Progress Section (Yellow Outline) -->
+            <div class="progress-section">
+                <h3>Total progress:</h3>
+                <div class="progress-items">
+                    <div class="progress-item">Optimization</div>
+                    <div class="progress-item">Neural Initialization</div>
                 </div>
             </div>
-        </section>
-</main>
+        </div>
+    </div>
 
-    <footer class="footer">
-        <p>© 2024 Tada201. All rights reserved.</p>
-    </footer>
+    <!-- Main Content -->
+    <div class="main-content" style="display: none;">
+        <aside class="sidebar">
+            <img src="assets/images/profile.png" alt="Profile Picture" class="profile-pic" id="profilePic">
+            <nav>
+                <ul class="navbar">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <script type="module" src="js/main.js"></script>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1 class="glitch-text">Welcome to My Portfolio</h1>
+                    <p class="typing-text">Web design test by selected AI</p>
+                    <a href="#contact" class="btn pulse">Get in Touch</a>
+                </div>
+            </section>
+
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>This is a testing development site.</p>
+                    <p>The many radical changes you see in each contribution on github is me fooling around with the possibility of many AI models into one</p>
+                </div>
+            </section>
+
+            <section id="portfolio" class="section">
+                <h2>My Work</h2>
+                <div class="portfolio-items">
+                    <div class="portfolio-item">
+                        <h3>Project 1</h3>
+                        <p>test info</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Project 2</h3>
+                        <p>test info</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Project 3</h3>
+                        <p>*insert description*</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Me</h2>
+                <div class="contact-content">
+                    <p>Get in touch with me for collaborations and opportunities.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:tada203@gmail.com">tada203@gmail.com</a></p>
+                        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Tada203" target="_blank">github.com/Tada203</a></p>
+                        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/example@example.com" target="_blank">linkedin.com/in/example@example.com</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p> 2024 Tada203. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/boot.js"></script>
+    <script src="animations.js"></script>
+    <script src="js/audioManager.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/matrixCursor.js"></script>
 </body>
 </html>

@@ -1,0 +1,124 @@
+/* Initial states */
+.navbar,
+.profile-pic,
+.hero-content,
+#about,
+#portfolio,
+#contact {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar {
+    transform: translateY(-20px);
+}
+
+.profile-pic {
+    transform: translateX(-50px) scale(0.8);
+}
+
+.hero-content {
+    transform: translateY(20px);
+}
+
+#about,
+#portfolio,
+#contact {
+    transform: translateY(30px);
+}
+
+/* Glitch effect */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        text-shadow: 2px 2px #00ffff, -2px -2px #ff00ff;
+    }
+    40% {
+        transform: translate(2px, -2px);
+        text-shadow: -2px -2px #00ffff, 2px 2px #ff00ff;
+    }
+    60% {
+        transform: translate(-2px, 2px);
+        text-shadow: 2px -2px #00ffff, -2px 2px #ff00ff;
+    }
+    80% {
+        transform: translate(2px, -2px);
+        text-shadow: -2px 2px #00ffff, 2px -2px #ff00ff;
+    }
+    100% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+}
+
+.glitch-text {
+    position: relative;
+    animation: glitch 5s infinite;
+    animation-delay: 2s;
+}
+
+/* Typing cursor effect */
+.typing-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Portfolio item hover effect */
+.portfolio-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Contact info hover effects */
+.contact-info a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.contact-info a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00ffff;
+    transition: width 0.3s ease;
+}
+
+.contact-info a:hover::after {
+    width: 100%;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar,
+    .profile-pic,
+    .hero-content,
+    #about,
+    #portfolio,
+    #contact {
+        transform: translateY(0);
+    }
+    
+    .glitch-text {
+        font-size: 24px;
+    }
+    
+    .portfolio-item:hover {
+        transform: none;
+    }
+}

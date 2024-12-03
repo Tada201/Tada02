@@ -1,0 +1,112 @@
+.system-monitor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 15px;
+    font-family: 'Source Code Pro', monospace;
+    color: var(--color-text);
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.monitor-section {
+    margin-bottom: 20px;
+}
+
+.monitor-section:last-child {
+    margin-bottom: 0;
+}
+
+.monitor-section h3 {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.graph-canvas {
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.stats {
+    font-size: 12px;
+    text-align: right;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+/* Hover effects */
+.system-monitor:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 30px rgba(var(--color-accent-rgb), 0.4);
+}
+
+.graph-canvas:hover {
+    border-color: var(--color-accent);
+}
+
+/* Animation for stats */
+.stats {
+    transition: color 0.3s ease;
+}
+
+/* Custom scrollbar */
+.system-monitor::-webkit-scrollbar {
+    width: 5px;
+}
+
+.system-monitor::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.system-monitor::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .system-monitor {
+        width: 200px;
+        font-size: 12px;
+    }
+
+    .graph-canvas {
+        height: 40px;
+    }
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* High usage warning */
+.monitor-section.warning .stats {
+    color: #ff5555;
+    animation: pulse 1s infinite;
+}
+
+/* Minimize/Maximize functionality */
+.system-monitor.minimized {
+    width: 50px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.system-monitor.minimized:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
