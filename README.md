@@ -1,2 +1,4 @@
-# Tada203_test
-A place for testing Project IDX place to code
+# Tada02
+A place for testing web dev AI
+
+Link: https://tada201.github.io/Tada02/
